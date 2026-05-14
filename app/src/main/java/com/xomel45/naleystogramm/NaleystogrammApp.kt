@@ -5,6 +5,8 @@ import com.xomel45.naleystogramm.core.Identity
 import com.xomel45.naleystogramm.core.Logger
 import com.xomel45.naleystogramm.core.SessionManager
 import com.xomel45.naleystogramm.core.Storage
+import com.xomel45.naleystogramm.core.SystemInfo
+import com.xomel45.naleystogramm.crypto.KeyProtector
 
 class NaleystogrammApp : Application() {
     override fun onCreate() {
@@ -12,7 +14,9 @@ class NaleystogrammApp : Application() {
         Logger.init(filesDir)
         SessionManager.init(this)
         Identity.init(this)
+        KeyProtector.init(this)  // must run before E2EManager and Storage
         Storage.init(this)
+        SystemInfo.collect(this)
         Logger.i("App", "Naleystogramm 0.7.3 started, uuid=${Identity.uuid}")
     }
 }
