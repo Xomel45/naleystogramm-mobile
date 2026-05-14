@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- App-specific -->
+    <color name="color_online">#FF4CAF50</color>
+    <color name="color_offline">#FF9E9E9E</color>
+    <color name="color_reconnecting">#FFFFC107</color>
+    <color name="color_bubble_out">#FF3700B3</color>
+    <color name="color_bubble_in">#FF2D2D2D</color>
+    <color name="color_surface_card">#FF1E1E1E</color>
 </resources>

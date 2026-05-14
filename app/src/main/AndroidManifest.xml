@@ -68,7 +68,20 @@
         <activity
             android:name=".ui.CallActivity"
             android:exported="false"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.Naleystogramm.Call"
+            android:showOnLockScreen="true" />
+
+        <!-- FileProvider для открытия принятых файлов -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
 
         <!-- Фоновый сервис: держит TCP-соединения, принимает сообщения и звонки -->
         <service

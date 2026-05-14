@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/contactsFragment">
+
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="com.xomel45.naleystogramm.ui.ContactsFragment"
+        android:label="@string/nav_contacts">
+        <action
+            android:id="@+id/action_contacts_to_chat"
+            app:destination="@id/chatFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_right"
+            app:popExitAnim="@android:anim/slide_out_left" />
+        <action
+            android:id="@+id/action_contacts_to_shell"
+            app:destination="@id/shellFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_right"
+            app:popExitAnim="@android:anim/slide_out_left" />
+        <action
+            android:id="@+id/action_contacts_to_transfers"
+            app:destination="@id/fileTransferFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_right"
+            app:popExitAnim="@android:anim/slide_out_left" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.xomel45.naleystogramm.ui.ChatFragment"
+        android:label="">
+        <argument
+            android:name="peerId"
+            app:argType="string" />
+        <argument
+            android:name="peerName"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.xomel45.naleystogramm.ui.SettingsFragment"
+        android:label="@string/nav_settings" />
+
+    <fragment
+        android:id="@+id/logFragment"
+        android:name="com.xomel45.naleystogramm.ui.LogFragment"
+        android:label="@string/nav_log" />
+
+    <fragment
+        android:id="@+id/fileTransferFragment"
+        android:name="com.xomel45.naleystogramm.ui.FileTransferFragment"
+        android:label="Передачи файлов" />
+
+    <fragment
+        android:id="@+id/shellFragment"
+        android:name="com.xomel45.naleystogramm.ui.ShellFragment"
+        android:label="Удалённый шелл">
+        <argument
+            android:name="sessionId"
+            app:argType="string" />
+        <argument
+            android:name="peerId"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

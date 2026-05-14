@@ -72,6 +72,20 @@ class MessagingService : Service() {
             Logger.i("MessagingService", "E2E session established with $peerId")
         }
 
+        callManager.onIncomingCall = { fromId, callerName, callId ->
+            com.xomel45.naleystogramm.ui.CallActivity.startIncoming(
+                this, fromId, callerName, callId
+            )
+        }
+
+        fileTransfer.onFileOffer = { fromId, name, size, offerId, durationMs ->
+            if (durationMs > 0) {
+                fileTransfer.acceptOffer(fromId, offerId)
+            } else {
+                Logger.i("MessagingService", "File offer from $fromId: $name ($size bytes)")
+            }
+        }
+
         network.start()
         observeNetworkEvents()
         Logger.i("MessagingService", "Service created")
@@ -125,7 +139,10 @@ class MessagingService : Service() {
                     is NetworkEvent.NetworkError -> {
                         Logger.e("MessagingService", event.message)
                     }
-                    else -> { /* ConnectionStateChanged, IncomingRequest — handled by UI */ }
+                    is NetworkEvent.IncomingRequest -> {
+                        incomingRequestListener?.invoke(event.peerId, event.peerName, event.peerIp)
+                    }
+                    else -> {}
                 }
             }
         }
@@ -230,6 +247,34 @@ class MessagingService : Service() {
             this, 0, intent,
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
         )
+    }
+
+    // ── Listener for incoming connection requests (set by MainActivity) ────────
+
+    var incomingRequestListener: ((peerId: String, peerName: String, peerIp: String) -> Unit)? = null
+
+    // ── Public API for UI ─────────────────────────────────────────────────────
+
+    fun sendMessage(peerId: String, text: String) {
+        serviceScope.launch {
+            runCatching {
+                val frame = e2e.encrypt(peerId, text.toByteArray())
+                network.sendJson(peerId, frame)
+                Storage.messages.insert(MessageEntity(
+                    peerId     = peerId,
+                    content    = text,
+                    timestamp  = System.currentTimeMillis(),
+                    isOutgoing = true
+                ))
+            }.onFailure { Logger.e("MessagingService", "sendMessage failed: ${it.message}") }
+        }
+    }
+
+    fun sendFile(peerId: String, filePath: String, durationMs: Int = 0) {
+        serviceScope.launch {
+            runCatching { fileTransfer.sendFile(peerId, filePath, durationMs) }
+                .onFailure { Logger.e("MessagingService", "sendFile failed: ${it.message}") }
+        }
     }
 
     companion object {

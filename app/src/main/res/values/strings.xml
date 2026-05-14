@@ -1,3 +1,162 @@
 <resources>
     <string name="app_name">Naleystogramm</string>
+
+    <!-- Bottom nav -->
+    <string name="nav_contacts">Чаты</string>
+    <string name="nav_settings">Настройки</string>
+    <string name="nav_log">Журнал</string>
+
+    <!-- Contacts -->
+    <string name="contacts_empty">Нет контактов.\nНажмите + чтобы добавить.</string>
+    <string name="contacts_search_hint">Поиск…</string>
+    <string name="contacts_online">Онлайн</string>
+    <string name="contacts_offline">Офлайн</string>
+    <string name="contacts_reconnecting">Переподключение…</string>
+    <string name="contacts_latency_ms">%d мс</string>
+    <string name="contacts_unread">%d</string>
+    <string name="menu_profile">Профиль</string>
+    <string name="menu_delete_chat">Удалить чат</string>
+    <string name="menu_delete_contact">Удалить контакт</string>
+
+    <!-- Add contact dialog -->
+    <string name="add_contact_title">Добавить контакт</string>
+    <string name="add_contact_hint">UUID@IP:Порт</string>
+    <string name="add_contact_name_hint">Имя (необязательно)</string>
+    <string name="add_contact_connect">Подключиться</string>
+    <string name="add_contact_my_id">Мой ID: %s</string>
+    <string name="add_contact_error_format">Неверный формат. Ожидается UUID@IP:Порт</string>
+
+    <!-- Incoming dialog -->
+    <string name="incoming_title">Входящее подключение</string>
+    <string name="incoming_from">%s (%s)</string>
+    <string name="incoming_accept">Принять</string>
+    <string name="incoming_reject">Отклонить</string>
+
+    <!-- Chat -->
+    <string name="chat_input_hint">Сообщение…</string>
+    <string name="chat_no_session">Нет E2E-сессии. Сначала установите соединение.</string>
+    <string name="chat_voice_duration">%d сек</string>
+    <string name="chat_file_send">Отправить файл</string>
+    <string name="chat_call">Звонок</string>
+    <string name="chat_typing">печатает…</string>
+    <string name="chat_placeholder">Выберите контакт для начала переписки</string>
+    <string name="chat_delivered">✓</string>
+
+    <!-- File accept dialog -->
+    <string name="file_accept_title">Входящий файл</string>
+    <string name="file_accept_from">От: %s</string>
+    <string name="file_accept_name">Файл: %s</string>
+    <string name="file_accept_size">Размер: %s</string>
+    <string name="file_accept">Принять</string>
+    <string name="file_reject">Отклонить</string>
+
+    <!-- File transfers -->
+    <string name="transfers_empty">Нет активных передач</string>
+    <string name="transfer_cancel">✕</string>
+    <string name="transfer_speed">%s/с</string>
+    <string name="transfer_sending">Отправка</string>
+    <string name="transfer_receiving">Получение</string>
+    <string name="transfer_done">Готово</string>
+    <string name="transfer_failed">Ошибка</string>
+    <string name="transfer_paused">Пауза</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Настройки</string>
+    <string name="settings_profile">Профиль</string>
+    <string name="settings_name_hint">Отображаемое имя</string>
+    <string name="settings_uuid_label">UUID: %s</string>
+    <string name="settings_network">Сеть</string>
+    <string name="settings_port_hint">Порт (по умолчанию 47821)</string>
+    <string name="settings_debug">Отладка</string>
+    <string name="settings_verbose">Подробный журнал</string>
+    <string name="settings_demo_mode">Режим демонстрации</string>
+    <string name="settings_save">Сохранить</string>
+    <string name="settings_saved">Настройки сохранены</string>
+    <string name="settings_my_id_label">Мой адрес:</string>
+    <string name="settings_my_id_format">%s@%s:%d</string>
+    <string name="settings_copy">Копировать</string>
+    <string name="settings_copied">Скопировано в буфер обмена</string>
+
+    <!-- Call -->
+    <string name="call_outgoing">Исходящий звонок…</string>
+    <string name="call_ringing">Входящий звонок</string>
+    <string name="call_in_call">%s</string>
+    <string name="call_mute">Откл. микрофон</string>
+    <string name="call_unmute">Вкл. микрофон</string>
+    <string name="call_hangup">Завершить</string>
+    <string name="call_accept">Принять</string>
+    <string name="call_reject">Отклонить</string>
+
+    <!-- Shell -->
+    <string name="shell_input_hint">Команда…</string>
+    <string name="shell_send">Отправить</string>
+    <string name="shell_kill">Завершить сессию</string>
+    <string name="shell_otp_title">OTP-пароль</string>
+    <string name="shell_otp_hint">Введите OTP от собеседника</string>
+    <string name="shell_confirm">Подтвердить</string>
+    <string name="shell_waiting_otp">Ожидание ввода OTP…\nПароль: %s</string>
+    <string name="shell_session_ended">Сессия завершена: %s</string>
+
+    <!-- Log -->
+    <string name="log_clear">Очистить</string>
+    <string name="log_empty">Журнал пуст</string>
+
+    <!-- Contact profile dialog -->
+    <string name="profile_title">Профиль</string>
+    <string name="profile_uuid">UUID</string>
+    <string name="profile_address">Адрес</string>
+    <string name="profile_latency">Задержка</string>
+    <string name="profile_latency_value">%d мс</string>
+    <string name="profile_latency_none">—</string>
+    <string name="profile_os">ОС</string>
+    <string name="profile_device">Устройство</string>
+    <string name="profile_safety_number">Safety Number</string>
+    <string name="profile_call">Позвонить</string>
+    <string name="profile_shell">Удалённый шелл</string>
+    <string name="profile_close">Закрыть</string>
+    <string name="profile_peer_id">ID пира</string>
+    <string name="profile_latency_unknown">—</string>
+    <string name="profile_open_chat">Написать</string>
+    <string name="profile_delete">Удалить</string>
+
+    <!-- Status -->
+    <string name="status_online">В сети</string>
+    <string name="status_offline">Не в сети</string>
+
+    <!-- Call states -->
+    <string name="call_state_calling">Вызов…</string>
+    <string name="call_state_ringing">Входящий…</string>
+    <string name="call_state_in_call">Разговор</string>
+    <string name="call_state_ended">Вызов завершён</string>
+    <string name="call_state_incoming">Входящий звонок</string>
+
+    <!-- Transfers -->
+    <string name="transfer_to">→ %s</string>
+    <string name="transfer_from">← %s</string>
+    <string name="transfer_in_progress">Передача…</string>
+    <string name="transfer_cancelled">Отменено</string>
+
+    <!-- Settings -->
+    <string name="settings_version">Версия %s</string>
+    <string name="settings_update_available">Доступна версия %s</string>
+    <string name="settings_up_to_date">Обновлений нет</string>
+
+    <!-- Voice -->
+    <string name="voice_play">Воспроизвести</string>
+
+    <!-- Shell -->
+    <string name="shell_connect">Подключиться</string>
+
+    <!-- Errors / common -->
+    <string name="error_no_service">Сервис не запущен</string>
+    <string name="error_peer_offline">Контакт не в сети</string>
+    <string name="error_no_e2e">Нет E2E-сессии. Сначала подключитесь к контакту.</string>
+    <string name="ok">ОК</string>
+    <string name="cancel">Отмена</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="copy">Копировать</string>
+    <string name="delete">Удалить</string>
+    <string name="confirm_delete_chat">Удалить всю переписку с этим контактом?</string>
+    <string name="confirm_delete_contact">Удалить контакт и всю переписку?</string>
 </resources>
